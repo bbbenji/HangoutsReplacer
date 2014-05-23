@@ -17,12 +17,12 @@ public class HangoutsReplacer implements IXposedHookZygoteInit, IXposedHookInitP
     public void handleInitPackageResources(InitPackageResourcesParam resparam) throws Throwable {
         if (!resparam.packageName.equals("com.google.android.talk"))
             return;
-
+        
         XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
         resparam.res.setReplacement(
-        		"com.google.android.talk", 
+        		"com.google.android.apps.babel", 
         		"drawable", 
-        		"emoji_u263a", 
-        		modRes.fwd(R.drawable.emoji_u263a));
+        		"emoji_u1f60a", 
+        		modRes.fwd(R.drawable.emoji_u1f60a));
     }
 }
